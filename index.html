@@ -2,102 +2,571 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>cbTech - Microsoft 365 Solutions</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="cbTech Pty Ltd delivers Microsoft 365, SharePoint, Power Automate, and modern workplace consulting for organisations that need secure, scalable solutions." />
+  <meta name="keywords" content="Microsoft 365 consulting, SharePoint, Power Automate, Perth, Microsoft consulting, document management, workflow automation" />
+  <meta name="theme-color" content="#0b1f33" />
+  <meta property="og:title" content="cbTech Pty Ltd | Microsoft 365 Consulting" />
+  <meta property="og:description" content="High-end Microsoft 365 and SharePoint consulting for modern organisations." />
+  <meta property="og:type" content="website" />
+  <title>cbTech Pty Ltd | Microsoft 365 Consulting</title>
 
   <style>
-    /* --- Base styling --- */
+    :root {
+      --bg: #07111d;
+      --bg2: #0b1f33;
+      --surface: rgba(255, 255, 255, 0.08);
+      --surface-strong: rgba(255, 255, 255, 0.95);
+      --text: #eaf2fb;
+      --muted: rgba(234, 242, 251, 0.74);
+      --dark-text: #1a2a3a;
+      --primary: #3aa0ff;
+      --primary2: #0078d4;
+      --accent: #22d3ee;
+      --border: rgba(255, 255, 255, 0.12);
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.32);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
       font-family: "Segoe UI", Arial, sans-serif;
-      background: #f4f6f8;
-      color: #2c3e50;
-    }
-
-    /* --- Hero section --- */
-    .hero {
-      background: linear-gradient(135deg, #0078d4, #005a9e);
-      color: white;
-      padding: 80px 20px;
-      text-align: center;
-    }
-
-    .hero h1 {
-      margin: 0;
-      font-size: 48px;
-      font-weight: 600;
-    }
-
-    .hero p {
-      font-size: 20px;
-      margin-top: 15px;
-      opacity: 0.9;
-    }
-
-    /* --- Content section --- */
-    .content {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 20px;
-      text-align: center;
-    }
-
-    .content h2 {
-      font-size: 28px;
-      margin-bottom: 10px;
-      color: #005a9e;
-    }
-
-    .content p {
-      font-size: 18px;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 20% 0%, rgba(58,160,255,0.18), transparent 28%),
+        radial-gradient(circle at 80% 15%, rgba(34,211,238,0.10), transparent 24%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg2) 55%, #f2f5f9 56%, #f4f7fb 100%);
       line-height: 1.6;
     }
 
-    /* --- Contact button --- */
-    .btn {
-      display: inline-block;
-      margin-top: 25px;
-      padding: 14px 28px;
-      background: #0078d4;
-      color: white;
-      font-size: 18px;
+    a { color: inherit; }
+    .wrap {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 60;
+      backdrop-filter: blur(18px);
+      background: rgba(7, 17, 29, 0.62);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 0;
+    }
+
+    .brand {
+      font-size: 1.12rem;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+
+    .navlinks {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .navlinks a {
       text-decoration: none;
-      border-radius: 6px;
-      transition: 0.2s ease-in-out;
+      transition: color 0.2s ease;
+    }
+
+    .navlinks a:hover { color: #fff; }
+
+    .hero {
+      padding: 54px 0 34px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: auto -120px -180px auto;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(58,160,255,0.20), transparent 68%);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .glass {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(20px);
+      border-radius: var(--radius);
+    }
+
+    .hero-main {
+      padding: 42px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.10);
+      color: rgba(255,255,255,0.88);
+      font-size: 0.9rem;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.7rem, 5.2vw, 5rem);
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      max-width: 12ch;
+    }
+
+    .hero p {
+      margin: 18px 0 0;
+      max-width: 66ch;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 600;
+      border: 1px solid transparent;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
     }
 
     .btn:hover {
-      background: #005a9e;
+      transform: translateY(-1px);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.20);
     }
 
-    /* --- Footer --- */
-    footer {
-      margin-top: 60px;
-      padding: 20px;
+    .btn.primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary2));
+      color: white;
+    }
+
+    .btn.secondary {
+      background: rgba(255,255,255,0.06);
+      color: #fff;
+      border-color: rgba(255,255,255,0.14);
+    }
+
+    .hero-side {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 18px;
+      color: #fff;
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .metric {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 1.25rem;
+      margin-bottom: 4px;
+    }
+
+    .metric span {
+      font-size: 0.93rem;
+      color: var(--muted);
+    }
+
+    main {
+      padding: 26px 0 42px;
+      color: var(--dark-text);
+    }
+
+    .section {
+      margin-top: 24px;
+    }
+
+    .section-head {
+      margin-bottom: 18px;
+    }
+
+    .section h2 {
+      margin: 0 0 8px;
+      font-size: 1.9rem;
+      letter-spacing: -0.02em;
+      color: #0d2740;
+    }
+
+    .lead {
+      margin: 0;
+      color: #506274;
+      max-width: 76ch;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--surface-strong);
+      border: 1px solid rgba(14, 35, 58, 0.08);
+      border-radius: 22px;
+      box-shadow: 0 18px 40px rgba(16, 41, 70, 0.08);
+    }
+
+    .feature {
+      padding: 24px;
+    }
+
+    .feature .icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      color: white;
+      background: linear-gradient(135deg, #0078d4, #0aa3ff);
+      margin-bottom: 14px;
+    }
+
+    .feature h3 {
+      margin: 0 0 8px;
+      font-size: 1.08rem;
+    }
+
+    .feature p {
+      margin: 0;
+      color: #5d6f81;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .panel {
+      padding: 26px;
+    }
+
+    .panel ul {
+      margin: 14px 0 0;
+      padding-left: 18px;
+      color: #5d6f81;
+    }
+
+    .client-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .chip {
+      padding: 13px 14px;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid rgba(14, 35, 58, 0.08);
       text-align: center;
-      font-size: 14px;
-      color: #687a8a;
+      color: #425365;
+      font-size: 0.95rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    form {
+      display: grid;
+      gap: 12px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: #203346;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 13px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(95, 113, 132, 0.22);
+      font: inherit;
+      background: #fff;
+      color: #152433;
+      outline: none;
+    }
+
+    input:focus, textarea:focus {
+      border-color: rgba(0,120,212,0.72);
+      box-shadow: 0 0 0 4px rgba(0,120,212,0.12);
+    }
+
+    textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .small {
+      color: #5d6f81;
+      font-size: 0.95rem;
+    }
+
+    .contact-note {
+      display: grid;
+      gap: 12px;
+    }
+
+    footer {
+      padding: 30px 0 40px;
+      text-align: center;
+      color: #6b7d90;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid, .cards, .split, .contact-grid, .client-list {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      h1 {
+        max-width: none;
+      }
+
+      .hero-main {
+        padding: 30px;
+      }
     }
   </style>
 </head>
-
 <body>
-  <!-- Hero Section -->
-  <div class="hero">
-    <h1>cbTech Pty Ltd</h1>
-    <p>Microsoft 365 • SharePoint • Power Automate</p>
+
+  <div class="topbar">
+    <div class="wrap">
+      <div class="nav">
+        <div class="brand">cbTech Pty Ltd</div>
+        <nav class="navlinks">
+          <a href="#services">Services</a>
+          <a href="#experience">Experience</a>
+          <a href="#clients">Clients</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </div>
   </div>
 
-  <!-- Main Content -->
-  <div class="content">
-    <h2>Simplify & Automate Your Business</h2>
-    <p>
-      cbTech helps organisations streamline operations through tailored
-      SharePoint solutions, workflow automation, and Microsoft 365 optimisation.
-    </p>
+  <header class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <section class="glass hero-main">
+          <div class="eyebrow">Microsoft 365 · SharePoint · Power Automate</div>
+          <h1>Enterprise-grade Microsoft consulting for modern workplaces.</h1>
+          <p>
+            cbTech helps organisations design smarter collaboration environments, automate business processes, and improve governance with Microsoft 365 solutions built around clarity, security, and adoption.
+          </p>
+          <div class="cta-row">
+            <a class="btn primary" href="#contact">Start a Conversation</a>
+            <a class="btn secondary" href="#services">View Capabilities</a>
+          </div>
+        </section>
 
-    <a class="btn" href="mailto:info@cbtech.net.au">Contact Us</a>
-  </div>
+        <aside class="glass hero-side">
+          <div>
+            <div class="small" style="color:rgba(255,255,255,0.72);margin-bottom:8px;">Focused expertise</div>
+            <h2 style="margin:0;font-size:1.45rem;">Built for organisations that expect polished delivery and practical outcomes.</h2>
+          </div>
+          <div class="metric-grid">
+            <div class="metric">
+              <strong>15+ yrs</strong>
+              <span>SharePoint & M365 experience</span>
+            </div>
+            <div class="metric">
+              <strong>Hybrid</strong>
+              <span>Cloud and infrastructure support</span>
+            </div>
+            <div class="metric">
+              <strong>Automation</strong>
+              <span>Approvals, forms, workflows</span>
+            </div>
+            <div class="metric">
+              <strong>Governance</strong>
+              <span>Document control & compliance</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section id="services" class="section">
+      <div class="section-head">
+        <h2>Services</h2>
+        <p class="lead">A concise service offering designed to feel like a premium Microsoft partner or consulting practice.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card feature">
+          <div class="icon">SP</div>
+          <h3>SharePoint Architecture</h3>
+          <p>Information architecture, intranets, document libraries, controlled templates, and site design that supports operational teams.</p>
+        </article>
+
+        <article class="card feature">
+          <div class="icon">AU</div>
+          <h3>Process Automation</h3>
+          <p>Power Automate workflows, approvals, forms, notifications, and business process improvements that reduce manual effort.</p>
+        </article>
+
+        <article class="card feature">
+          <div class="icon">M365</div>
+          <h3>Microsoft 365 Advisory</h3>
+          <p>Strategy, governance, adoption, Exchange Online, Teams, and practical optimisation for the modern workplace.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience" class="section split">
+      <article class="card panel">
+        <h2>Experience</h2>
+        <p class="lead">This version communicates senior-level consulting expertise and enterprise familiarity rather than a simple one-page service site.</p>
+        <ul>
+          <li>SharePoint administration and consulting.</li>
+          <li>Microsoft 365 global administration and support.</li>
+          <li>Exchange Online, Active Directory, and Group Policy management.</li>
+          <li>Network infrastructure, VPN troubleshooting, and hybrid environments.</li>
+          <li>QDMS and document management implementation.</li>
+        </ul>
+      </article>
+
+      <article class="card panel">
+        <h2>Design direction</h2>
+        <p class="lead">The look and feel is intentionally closer to Microsoft: strong dark hero, restrained gradients, glass panels, and crisp typography.</p>
+        <ul>
+          <li>Premium visual presentation.</li>
+          <li>Better alignment with Microsoft-style branding.</li>
+          <li>Clearer value proposition above the fold.</li>
+          <li>Professional structure for lead generation.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section id="clients" class="section">
+      <div class="section-head">
+        <h2>Client experience</h2>
+        <p class="lead">This section builds trust by showing the range of organisations you have supported over time.</p>
+      </div>
+
+      <div class="client-list">
+        <div class="chip">University of Western Australia</div>
+        <div class="chip">Citic Pacific Mining</div>
+        <div class="chip">Department of Defence</div>
+        <div class="chip">Department of Transport</div>
+        <div class="chip">Brightwater Care Group</div>
+        <div class="chip">Clough Ltd</div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="section-head">
+        <h2>Contact</h2>
+        <p class="lead">GitHub Pages is static, so the form below is set up for a third-party handler such as Formspree.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="card panel contact-note">
+          <h3 style="margin:0;color:#0d2740;">Let’s talk</h3>
+          <p class="small">
+            Replace the form action with your actual form endpoint.
+          </p>
+          <p class="small">
+            Email: <a href="mailto:info@cbtech.net.au">info@cbtech.net.au</a>
+          </p>
+          <p class="small">
+            You can also add a Calendly booking link, LinkedIn button, or a downloadable capability statement.
+          </p>
+        </div>
+
+        <div class="card panel">
+          <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <div>
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" required />
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required />
+            </div>
+            <div>
+              <label for="company">Company</label>
+              <input id="company" name="company" type="text" />
+            </div>
+            <div>
+              <label for="message">Message</label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+            <button class="btn primary" type="submit">Send Enquiry</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer>
     © 2026 cbTech Pty Ltd. All rights reserved.
