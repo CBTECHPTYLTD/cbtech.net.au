@@ -311,6 +311,16 @@
       font-size: 0.95rem;
     }
 
+    .section-link {
+      color: var(--primary2);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .section-link:hover {
+      text-decoration: underline;
+    }
+
     footer {
       padding: 30px 0 40px;
       text-align: center;
@@ -336,6 +346,12 @@
         padding: 30px;
       }
     }
+
+    @media (max-width: 720px) {
+      .hero-main {
+        padding: 24px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -346,6 +362,7 @@
         <div class="brand">cbTech Pty Ltd | Streamline Business Processes</div>
         <nav class="navlinks">
           <a href="#services">Services</a>
+          <a href="#hiverlab">Partner</a>
           <a href="#clients">Clients</a>
           <a href="#contact">Contact</a>
         </nav>
@@ -441,6 +458,31 @@
       </div>
     </section>
 
+    <section id="hiverlab" class="section">
+      <div class="section-head">
+        <h2>Local working partner</h2>
+        <p class="lead">
+          cbTech is the local working partner of <a class="section-link" href="https://www.hiverlab.com/" target="_blank" rel="noopener noreferrer">Hiverlab</a> at Western Australia, supporting businesses looking to explore AI-powered spatial computing and digital twin solutions.
+        </p>
+      </div>
+
+      <div class="card" style="padding:26px;">
+        <div style="display:grid;grid-template-columns:1.2fr 0.8fr;gap:18px;align-items:center;">
+          <div>
+            <h3 style="margin:0 0 10px;font-size:1.25rem;color:#2f4a62;">Hiverlab SpatialWork</h3>
+            <p style="margin:0;color:#5d6f81;">
+              Hiverlab is an industrial spatial intelligence company. They turn assets, facilities, and operations into living digital systems businesses can see, question, and act on — in real time. Hiverlab’s SpatialWork platform combines AI-powered digital twins, real-time data visualisation, and collaboration tools for modern operational environments.
+            </p>
+          </div>
+          <div style="display:flex;justify-content:flex-start;gap:12px;flex-wrap:wrap;">
+            <span class="chip" style="display:inline-block;">AI-Powered</span>
+            <span class="chip" style="display:inline-block;">Spatial Computing</span>
+            <span class="chip" style="display:inline-block;">Digital Twins</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="clients" class="section">
       <div class="section-head">
         <h2>Client experience</h2>
@@ -462,15 +504,15 @@
         <div class="chip">DIAB Engineering</div>
         <div class="chip">CARNAVON</div>
         <div class="chip">CGH Group</div>
-        <div class="chip">WACSSO</div>
-        <div class="chip">AAWA</div>
+        <div class="chip">Western Australian Council of State School Organisations</div>
+        <div class="chip">Autism Association of Western Australia</div>
         <div class="chip">Catholic Homes</div>
         <div class="chip">Brightwater</div>
-        <div class="chip">PRC</div>
+        <div class="chip">Perth Radiological Clinic</div>
         <div class="chip">Bethanie</div>
-        <div class="chip">AISWA</div>
-        <div class="chip">RACI</div>
-        <div class="chip">APM</div>
+        <div class="chip">Association of Independent Schools of Western Australia</div>
+        <div class="chip">RAC Insurance</div>
+        <div class="chip">Advanced Personnel Management</div>
         <div class="chip">City of Fremantle</div>
         <div class="chip">CALEnergy</div>
         <div class="chip">Pindan</div>
